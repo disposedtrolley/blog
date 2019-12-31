@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on James Liu</title>
+    <link>https://jamesliu.io/tags/python/</link>
+    <description>Recent content in Python on James Liu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jamesliu.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Generating Salads</title>
+      <link>https://jamesliu.io/post/2019-02-09-generating-salads/</link>
+      <pubDate>Sat, 09 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamesliu.io/post/2019-02-09-generating-salads/</guid>
+      <description>There&amp;rsquo;s a salad place I like called Chia Chia near where I&amp;rsquo;m currently working. I like it for the same reasons I hate it; it epitomises my fear of choice. How so? Here&amp;rsquo;s their salad &amp;ldquo;menu&amp;rdquo;:
+Scary isn&amp;rsquo;t it? There are 100 possible combinations of bases alone! Maybe trying out all of the salads here will make it into the bucket list. It&amp;rsquo;ll certainly be quite a gastronomical achievement.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on James Liu</title>
+    <link>https://jamesliu.io/post/</link>
+    <description>Recent content in Posts on James Liu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 09 Feb 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://jamesliu.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Generating Salads</title>
+      <link>https://jamesliu.io/post/2019-02-09-generating-salads/</link>
+      <pubDate>Sat, 09 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamesliu.io/post/2019-02-09-generating-salads/</guid>
+      <description>There&amp;rsquo;s a salad place I like called Chia Chia near where I&amp;rsquo;m currently working. I like it for the same reasons I hate it; it epitomises my fear of choice. How so? Here&amp;rsquo;s their salad &amp;ldquo;menu&amp;rdquo;:
+Scary isn&amp;rsquo;t it? There are 100 possible combinations of bases alone! Maybe trying out all of the salads here will make it into the bucket list. It&amp;rsquo;ll certainly be quite a gastronomical achievement.</description>
+    </item>
+    
+    <item>
+      <title>Go&#39;s Date Formatting - yay or nay?</title>
+      <link>https://jamesliu.io/post/2018-12-30-go-date-format/</link>
+      <pubDate>Sun, 30 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamesliu.io/post/2018-12-30-go-date-format/</guid>
+      <description>Lately I&amp;rsquo;ve been looking for excuses to write more and more Go, both on personal stuff (mostly for fun) and on smaller projects at work. I don&amp;rsquo;t know enough about low level languages, multithreading, or concurrency to make informed judgements of why Go is better than say, Rust, or C++. For me, Go seems to strike a good balance between giving the programmer control over minute details and maintaining the readability of the resulting code.</description>
+    </item>
+    
+    <item>
+      <title>Creating a macOS screensaver</title>
+      <link>https://jamesliu.io/post/2018-08-05-macos-screensaver/</link>
+      <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamesliu.io/post/2018-08-05-macos-screensaver/</guid>
+      <description>I tend to browse Hacker News obsessively over the course of a day, and this morning I came across this post where somebody had jailbroken their old Kindle (I didn&amp;rsquo;t even know you could do that 😱) and repurposed it into a fancy clock displaying literary quotes.
+I managed to dig up my old second-generation Kindle (which turned 9 this year!) thinking I&amp;rsquo;d charge it up, jailbreak it, and follow along with his tutorial as a fun Sunday morning project.</description>
+    </item>
+    
+    <item>
+      <title>Reflections on Waterfall, Agile, and Requirements - Part 1</title>
+      <link>https://jamesliu.io/post/2018-07-01-waterfall-agile-requirements/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://jamesliu.io/post/2018-07-01-waterfall-agile-requirements/</guid>
+      <description>I remember sitting in a lecture theatre not too long ago, and being told that 68% of software projects fail. “This is clearly a joke” I thought, “designed to suck us into the next topic we’ll be examined on. How is it that software is ever delivered? How much potential are we losing out on by letting this happen?”.
+Fast-forward to the present, and I’m finally beginning to appreciate the values of agile.</description>
+    </item>
+    
+  </channel>
+</rss>

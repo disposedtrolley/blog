@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="">
+  <meta name="generator" content="Hugo 0.59.1" />
+  <title>Generating Salads — James Liu</title>
+
+  <meta name="description" content="">
+  <link rel="canonical" href="https://jamesliu.io/post/2019-02-09-generating-salads/">
+  <link href="" rel="alternate" type="application/rss+xml" title="James Liu">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Arvo:400,700">
+  <link rel="stylesheet" href="https://jamesliu.io/css/highlight.css">
+  <link rel="stylesheet" href="https://jamesliu.io/css/paperback.css">
+</head>
+
+
+  <body>
+    <div class="container">
+
+      <header>
+  <h1>Generating Salads</h1>
+
+  
+  <time datetime="2019-02-09 00:00:00 &#43;0000 UTC">2019/02/09</time>
+  
+
+  
+</header>
+
+
+      <article>
+        
+
+<p>There&rsquo;s a salad place I like called <a href="https://www.zomato.com/melbourne/chia-chia-docklands">Chia Chia</a> near where I&rsquo;m currently working. I like it for the same reasons I hate it; it epitomises my fear of choice. How so? Here&rsquo;s their salad &ldquo;menu&rdquo;:</p>
+
+<p><img src="/img/chia-chia-menu.png" alt="Chia Chia Menu" /></p>
+
+<p>Scary isn&rsquo;t it? There are <em>100 possible combinations</em> of bases alone! Maybe trying out all of the salads here will make it into the bucket list. It&rsquo;ll certainly be quite a gastronomical achievement.</p>
+
+<p>Of course, there are &ldquo;better&rdquo; things for a bucket list and trying every possible combination of ingredients would likely produce more than a few inedible salads. We should find a smarter way, using <strong><em>computers and algorithms!</em></strong> In additional to saving our wallets and tastebuds, this will sure to be a fun filled adventure in programming. Here&rsquo;s what I&rsquo;m thinking:</p>
+
+<ul>
+<li>ingredients by themselves are somewhat difficult to reason with; does <code>tomato</code> go well with <code>3 bean mix</code>? Who knows. If I choose a <code>brown rice</code> base, how awful would a <code>caeser</code> dressing be?</li>
+<li><em>abstractions</em> of ingredients might be the way.</li>
+<li>an <em>abstraction</em> of an ingredient for this purpose would be the feeling, visual property, or dominant flavour of the ingredient. For instance, <code>Lemon Juice</code>, <code>Balsamic</code>, and <code>Sun Dried Tomatoes</code> might all be implementations of an <code>acidic</code> abstraction, while a <code>greens</code> abstraction could encapsulate things like <code>cucumber</code>, <code>broccoli</code>, and <code>basil dressing</code>.</li>
+<li>an ingredient can be an implementation of one or more abstraction, perhaps with an attached weight.</li>
+<li>when setting the parameters for the salad generator, I should only have to reason with abstractions and their amounts and combinations.</li>
+<li>an inedible salad should never be generated.</li>
+</ul>
+
+<h2 id="abstracting-ingredients">Abstracting ingredients</h2>
+
+<p>When we talk about abstracting ingredients, our goal is to identify an overarching feeling, visual property, or dominant flavour of the ingredient. My <a href="https://www.saltfatacidheat.com/">favourite cookbook</a> (also the only one I have ever read), describes flavour as lying &ldquo;in the intersection of taste, aroma, and sensory elements including texture, sound, appearance, and temperature&rdquo;, where <em>aroma</em> is any of thousands of chemical compounds sensed by our noses, and <em>taste</em> is the saltiness, sourness, bitterness, sweetness, and umami perceived by our tastebuds.</p>
+
+<p>For each ingredient on the menu, we want to encode its flavour in a way that is deep enough for the user to select without much thought, but shallow enough that relations can be made to neighbouring encodings. There exists a concept called <a href="https://blog.khymos.org/molecular-gastronomy/flavor-pairing/">flavour pairing</a> which considers that 80% of the reason why something tastes nice is due to its aroma versus its taste (we have 5-10 million smell receptors as opposed to about 9000 tastebuds), and looks at the molecular similarity between ingredients to recommend suitable pairings. <a href="https://cosylab.iiitd.edu.in/flavordb/">FlavourDB</a> is a tool we can use to explore these flavour molecules. There&rsquo;s no API, but data on ingredients are available to download as JSON files.</p>
+
+<p>Here&rsquo;s a sample of the JSON representation of a tomato:</p>
+
+<pre><code>{
+  &quot;category&quot;: &quot;vegetable-fruit&quot;,
+  &quot;entity_id&quot;: 364,
+  &quot;category_readable&quot;: &quot;Vegetable Fruit&quot;,
+  &quot;entity_alias_basket&quot;: &quot;tomato, tomato-juice, tomato-paste, tomato-puree&quot;,
+  &quot;entity_alias_readable&quot;: &quot;Tomato&quot;,
+  &quot;natural_source_name&quot;: &quot;Solanum&quot;,
+  &quot;entity_alias&quot;: &quot;tomato&quot;,
+  &quot;molecules&quot;: [
+    {
+      &quot;bond_stereo_count&quot;: 0,
+      &quot;undefined_atom_stereocenter_count&quot;: 0,
+      &quot;taste&quot;: &quot;&quot;,
+      &quot;functional_groups&quot;: &quot;carboxylic acid derivative@carboxylic acid ester&quot;,
+      &quot;fooddb_flavor_profile&quot;: &quot;hop_oil@apricot@whiskey@banana@tropica@papaya@melon@fruity@pear@green&quot;,
+      &quot;supersweetdb_id&quot;: &quot;&quot;,
+      &quot;fema_number&quot;: &quot;2060&quot;,
+      &quot;fooddb_id&quot;: &quot;FDB019935&quot;,
+      &quot;common_name&quot;: &quot;Isoamyl butyrate&quot;,
+      &quot;hba_count&quot;: 2,
+      &quot;synthetic&quot;: 0,
+      &quot;isotope_atom_count&quot;: 0,
+      &quot;bitterdb_id&quot;: &quot;&quot;,
+      &quot;covalently_bonded_unit_count&quot;: 1,
+      &quot;molecular_weight&quot;: 158.241,
+      &quot;super_sweet&quot;: &quot;&quot;,
+      &quot;charge&quot;: 0,
+      &quot;flavornet_id&quot;: 0,
+      &quot;fenoroli_and_os&quot;: 1,
+      &quot;exact_mass&quot;: 158.131,
+      &quot;pubchem_id&quot;: 7795,
+      &quot;bitter&quot;: 0,
+      &quot;iupac_name&quot;: &quot;3-methylbutyl butanoate&quot;,
+      &quot;volume3d&quot;: &quot;137.5&quot;,
+      &quot;unknown_natural&quot;: 0,
+      &quot;odor&quot;: &quot;&quot;,
+      &quot;num_rotatablebonds&quot;: 6,
+      &quot;smile&quot;: &quot;CCCC(=O)OCCC(C)C&quot;,
+      &quot;inchi&quot;: &quot;InChI=1S/C9H18O2/c1-4-5-9(10)11-7-6-8(2)3/h8H,4-7H2,1-3H3&quot;,
+      &quot;undefined_bond_stereocenter_count&quot;: 0,
+      &quot;defined_bond_stereocenter_count&quot;: 0,
+      &quot;xlogp&quot;: &quot;2.6&quot;,
+      &quot;topological_polor_surfacearea&quot;: 26.3,
+      &quot;cas_id&quot;: &quot;106-27-4&quot;,
+      &quot;natural&quot;: 1,
+      &quot;flavor_profile&quot;: &quot;hop_oil@apricot@whiskey@banana@tropica@papaya@melon@fruity@pear@green&quot;,
+      &quot;hbd_count&quot;: 0,
+      &quot;fema_flavor_profile&quot;: &quot;Fruit&quot;,
+      &quot;complexity&quot;: 108.0,
+      &quot;heavy_atom_count&quot;: 11,
+      &quot;defined_atom_stereocenter_count&quot;: 0,
+      &quot;monoisotopic_mass&quot;: 158.131,
+      &quot;atom_stereo_count&quot;: 0
+    },
+    {
+      &quot;bond_stereo_count&quot;: 0,
+      &quot;undefined_atom_stereocenter_count&quot;: 0,
+      &quot;taste&quot;: &quot;&quot;,
+      &quot;functional_groups&quot;: &quot;carboxylic acid derivative@carboxylic acid ester&quot;,
+      &quot;fooddb_flavor_profile&quot;: &quot;peach@vegetable@herbal@apple peel@fresh@cut grass@fruity&quot;,
+      &quot;supersweetdb_id&quot;: &quot;&quot;,
+      &quot;fema_number&quot;: &quot;2572&quot;,
+      &quot;fooddb_id&quot;: &quot;FDB011707&quot;,
+      &quot;common_name&quot;: &quot;Hexyl Hexanoate&quot;,
+      &quot;hba_count&quot;: 2,
+      &quot;synthetic&quot;: 0,
+      &quot;isotope_atom_count&quot;: 0,
+      &quot;bitterdb_id&quot;: &quot;&quot;,
+      &quot;covalently_bonded_unit_count&quot;: 1,
+      &quot;molecular_weight&quot;: 200.322,
+      &quot;super_sweet&quot;: &quot;&quot;,
+      &quot;charge&quot;: 0,
+      &quot;flavornet_id&quot;: 1,
+      &quot;fenoroli_and_os&quot;: 1,
+      &quot;exact_mass&quot;: 200.178,
+      &quot;pubchem_id&quot;: 22873,
+      &quot;bitter&quot;: 0,
+      &quot;iupac_name&quot;: &quot;hexyl hexanoate&quot;,
+      &quot;volume3d&quot;: &quot;177.4&quot;,
+      &quot;unknown_natural&quot;: 0,
+      &quot;odor&quot;: &quot;&quot;,
+      &quot;num_rotatablebonds&quot;: 10,
+      &quot;smile&quot;: &quot;CCCCCCOC(=O)CCCCC&quot;,
+      &quot;inchi&quot;: &quot;InChI=1S/C12H24O2/c1-3-5-7-9-11-14-12(13)10-8-6-4-2/h3-11H2,1-2H3&quot;,
+      &quot;undefined_bond_stereocenter_count&quot;: 0,
+      &quot;defined_bond_stereocenter_count&quot;: 0,
+      &quot;xlogp&quot;: &quot;4.4&quot;,
+      &quot;topological_polor_surfacearea&quot;: 26.3,
+      &quot;cas_id&quot;: &quot;6378-65-0&quot;,
+      &quot;natural&quot;: 1,
+      &quot;flavor_profile&quot;: &quot;peach@vegetable@herbal@apple peel@fresh@cut grass@fruity&quot;,
+      &quot;hbd_count&quot;: 0,
+      &quot;fema_flavor_profile&quot;: &quot;Apple Peel, Peach, Plum&quot;,
+      &quot;complexity&quot;: 132.0,
+      &quot;heavy_atom_count&quot;: 14,
+      &quot;defined_atom_stereocenter_count&quot;: 0,
+      &quot;monoisotopic_mass&quot;: 200.178,
+      &quot;atom_stereo_count&quot;: 0
+    }
+  ]
+}
+</code></pre>
+
+<p>There&rsquo;s a heap of properties we don&rsquo;t really care about, such as <code>atom_stereo_count</code> and <code>inchi</code>. Perhaps in a different life these would make sense, but certainly not now. What we&rsquo;re probably interested in is the <code>flavour_profile</code> property of each <code>molecule</code> object, an <code>@</code>-separated list of flavours we can unpack and rank. We can create a hashmap of flavours and their counts, take the top x% of flavours, and begin to establish relationships between the ingredient and the flavour. We should keep track of the molecule too which may aid in matching – <code>pubchem_id</code> seems like a good candidate to use as an ID.</p>
+
+<p>For example, we might end up with this after examining all of the molecules in tomato:</p>
+
+<pre><code>&quot;tomato&quot;: {
+  &quot;flavour_profiles&quot;: [
+    {
+      &quot;name&quot;: &quot;sour&quot;,
+      &quot;molecules&quot;: [8314, 11552, 802]
+    },
+    {
+      &quot;name&quot;: &quot;acid&quot;,
+      &quot;molecules&quot;: [8314, 61503]
+    }
+  ]
+}
+</code></pre>
+
+<p>In this representation, we capture a ranked array of flavour profiles along with associated molecule IDs. We can then easily make comparisons with other ingredients to form pairs, while presenting the abstracted flavour profile name to the user.</p>
+
+<h2 id="data-model">Data Model</h2>
+
+<p>Chia Chia segment the menu into bases, toppings, proteins, dressings, and condiments/extras. The generator should respect these categories and account for the differing impacts of each type of ingredient to the overall taste of the salad. On top of this, we proposed abstracting each ingredient to one or more flavour profiles and establishing relationships between these abstractions. There are also metadata like price which should be stored.</p>
+
+<p>We can sketch out a rough draft of the data objects and their relations like so:</p>
+
+<p><img src="/img/data-model-sketch.png" alt="Data Model Sketch" /></p>
+
+<p>This is beginning to resemble a familiar data structure – graphs! We have ingredients and their abstractions as vertices, and edges to represent well-matching flavours. Adjacent vertices with a strongly weighted edge are flavour profiles which are well-suited to be combined, or based on the user&rsquo;s selections. We can establish high-level relationships amongst flavour profiles, with each flavour profile vertex branching off to one or more ingredients using the same weighting scheme discussed earlier. Another element to consider is the different categories the ingredients fall into (bases, proteins, dressings etc.). Our walk through the graph must encomposs the correct number of each type of ingredient, but not necessarily in a specific order.</p>
+
+<p>Let&rsquo;s review the constraints:</p>
+
+<ul>
+<li><em>ingredients</em> are <strong>children</strong> of one or more <em>flavour profiles</em>, with <strong>weightings</strong> of how closely they associate with the flavour. The upper limit of flavour profiles per ingredient is determined by the sum of all weights, which must &lt;= 1.</li>
+<li><em>ingredients</em> are members of a <strong>category</strong>, which together can be composed into a <em>salad</em>.</li>
+<li>at least one <em>ingredient</em> from each <strong>category</strong> should be selected.</li>
+<li>there is no order to the way the <em>ingredients</em> need to be chosen.</li>
+<li><em>flavour profiles</em> can relate well (high weight) or poorly (low weight). This weighting is determined through two factors:
+
+<ul>
+<li>user selection – which flavour profiles do they want most in the salad?</li>
+<li>static values – how well do the flavour profiles combine in general?</li>
+</ul></li>
+</ul>
+
+      </article>
+
+      <nav class="site-nav">
+  <a href="https://jamesliu.io/">Home</a>
+  <a href="https://jamesliu.io/post/">All posts</a>
+
+  
+
+  
+
+  
+</nav>
+
+
+      <footer class="site-footer">
+  <span class="owner">©2020 </span>
+  
+  
+  
+  
+</footer>
+
+
+    </div>
+
+  
+<script src="https://jamesliu.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+  </body>
+</html>
