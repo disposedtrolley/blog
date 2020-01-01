@@ -1,4 +1,11 @@
 baseURL = "//jamesliu.io"
 languageCode = "en-us"
 title = "James Liu"
-theme = "paperback"
+theme = "central"
+
+[permalinks]
+  post = "/:year/:month/:title/"
+  page = "/:slug/"
+
+[params]
+  mainSections = ["post"]
