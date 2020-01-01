@@ -1,72 +1,57 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
 
-  
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="">
-  <meta name="generator" content="Hugo 0.59.1" />
-  <title>Creating a macOS screensaver — James Liu</title>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="description" content="">
-  <link rel="canonical" href="//jamesliu.io/post/2018-08-05-macos-screensaver/">
-  <link href="" rel="alternate" type="application/rss+xml" title="James Liu">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Arvo:400,700">
-  <link rel="stylesheet" href="//jamesliu.iocss/highlight.css">
-  <link rel="stylesheet" href="//jamesliu.iocss/paperback.css">
-</head>
+    <title>James Liu</title>
 
+    <link href="//jamesliu.iocss/tufte.css" rel="stylesheet">
+    <link href="//jamesliu.iocss/latex.css" rel="stylesheet">
+    <link href="//jamesliu.iocss/style.css" rel="stylesheet"> 
+
+    
+  </head>
+
+  <div class="nav-bar">
+    <ul>
+      <li><a href="/">Blog</a></li>
+      <li><a href="/about">About</a></li>
+    </ul>
+  </div>
 
   <body>
-    <div class="container">
+    
 
-      <header>
+
+
   <h1>Creating a macOS screensaver</h1>
 
-  
-  <time datetime="2018-08-05 00:00:00 &#43;0000 UTC">2018/08/05</time>
-  
-
-  
-</header>
 
 
-      <article>
-        
 
-<p>I tend to browse Hacker News obsessively over the course of a day, and this morning I came across <a href="https://news.ycombinator.com/item?id=17688324">this post</a> where somebody had jailbroken their old Kindle (I didn&rsquo;t even know you could do that 😱) and repurposed it into a <a href="https://www.instructables.com/id/Literary-Clock-Made-From-E-reader/">fancy clock displaying literary quotes</a>.</p>
 
-<p>I managed to dig up my old second-generation Kindle (which turned 9 this year!) thinking I&rsquo;d charge it up, jailbreak it, and follow along with his tutorial as a fun Sunday morning project. I luckily purchased the case too, so I&rsquo;d probably be able to set upright on my desk at work to make for a decent clock 🕐.</p>
+  <p class="single-time"><time>August 12, 2018</time></p>
 
-<p><img src="/img/broken_kindle.JPG" alt="My old second-generation Kindle" /></p>
 
+<section class="single-content">
+  <p>I tend to browse Hacker News obsessively over the course of a day, and this morning I came across <a href="https://news.ycombinator.com/item?id=17688324">this post</a> where somebody had jailbroken their old Kindle (I didn't even know you could do that 😱) and repurposed it into a <a href="https://www.instructables.com/id/Literary-Clock-Made-From-E-reader/">fancy clock displaying literary quotes</a>.</p>
+<p>I managed to dig up my old second-generation Kindle (which turned 9 this year!) thinking I'd charge it up, jailbreak it, and follow along with his tutorial as a fun Sunday morning project. I luckily purchased the case too, so I'd probably be able to set upright on my desk at work to make for a decent clock 🕐.</p>
+<p><img src="/img/broken_kindle.JPG" alt="My old second-generation Kindle"></p>
 <p>Sadly the battery is bust &ndash; the charging indicator lights up only briefly after plugging in the micro USB cable, and after some research I came to the conclusion that the battery is to blame. Leaving it on charge with the indicator off for about an hour produced no results, so I gave up.</p>
-
-<p>I looked for other Kindle-sized devices I could use for this project, and came across nothing but an old Android tablet. I considered using that for a moment &ndash; it would be <em>much</em> easier (I&rsquo;d probably just write a small app to iterate and pick the correct image from the bundle provided on the Instructables site, based on the time) but the novelty of displaying literary quotes on an e-ink display would be gone. I also had concerns about battery life &ndash; I&rsquo;d probably need to have the tablet plugged in all day, and we&rsquo;re already short of power points at work.</p>
-
+<p>I looked for other Kindle-sized devices I could use for this project, and came across nothing but an old Android tablet. I considered using that for a moment &ndash; it would be <em>much</em> easier (I'd probably just write a small app to iterate and pick the correct image from the bundle provided on the Instructables site, based on the time) but the novelty of displaying literary quotes on an e-ink display would be gone. I also had concerns about battery life &ndash; I'd probably need to have the tablet plugged in all day, and we're already short of power points at work.</p>
 <p>So I started brainstorming things I could repurpose for my literary clock which I already had at work 🤔</p>
-
-<p>We have an old laptop hooked up to a TV 📺 which could work, but it seems a bit excessive to display literary quotes to half of the floor. Hmm&hellip;what about <em>my</em> computer? I&rsquo;ll always have it at work; it&rsquo;s hooked up to a reasonably sized screen, and it&rsquo;s not really doing anything when I&rsquo;m away from my desk. Maybe I can hack together a screensaver 🖼️ that does the same thing!</p>
-
+<p>We have an old laptop hooked up to a TV 📺 which could work, but it seems a bit excessive to display literary quotes to half of the floor. Hmm&hellip;what about <em>my</em> computer? I'll always have it at work; it's hooked up to a reasonably sized screen, and it's not really doing anything when I'm away from my desk. Maybe I can hack together a screensaver 🖼️ that does the same thing!</p>
 <h2 id="where-to-begin">Where to begin?</h2>
-
 <p>How do you even make a screensaver? Do people actually make their own? Do people actually <em>use</em> screensavers anymore?</p>
-
-<p>I don&rsquo;t think I&rsquo;ve used a screensaver on my computer since I was in primary school 🎒, way back when we still had the legendary Windows 98 maze:</p>
-
-<p><img src="/img/windows_maze.gif" alt="Windows 98 Maze Screensaver" /></p>
-
+<p>I don't think I've used a screensaver on my computer since I was in primary school 🎒, way back when we still had the legendary Windows 98 maze:</p>
+<p><img src="/img/windows_maze.gif" alt="Windows 98 Maze Screensaver"></p>
 <p>Google is probably the best place to start I thought. Searching &ldquo;making a macos screensaver&rdquo; brought me <a href="https://blog.viacom.tech/2016/06/27/making-a-macos-screen-saver-in-swift-with-scenekit/">here</a>, which provided a great kick-start to a Swift-based Xcode project for screensavers. Turns out Xcode still maintains a dedicated macOS project type for screensavers. Amazing!</p>
-
-<p><img src="/img/xcode_project_selection.png" alt="Xcode project selection menu" /></p>
-
+<p><img src="/img/xcode_project_selection.png" alt="Xcode project selection menu"></p>
 <h2 id="baby-steps">Baby steps</h2>
-
 <p>Creating a project with the Screen Saver template gives you an Objective-C header and messages file. I trashed these immediately and created a new Swift class as the entry point into the screensaver.</p>
-
-<pre><code class="language-swift">import ScreenSaver
+<pre><code class="language-{swift}" data-lang="{swift}">import ScreenSaver
 
 class Main: ScreenSaverView {
 
@@ -86,20 +71,15 @@ class Main: ScreenSaverView {
         super.draw(rect)
     }
 }
-</code></pre>
-
-<p>We import the <code>ScreenSaver</code> framework and subclass <code>ScreenSaverView</code>. There&rsquo;s a couple of functions we should override to control the behaviour of the screensaver. The <a href="https://developer.apple.com/documentation/screensaver">Apple docs</a> explain the screensaver workflow quite well, but the gist of it is:</p>
-
+</code></pre><p>We import the <code>ScreenSaver</code> framework and subclass <code>ScreenSaverView</code>. There's a couple of functions we should override to control the behaviour of the screensaver. The <a href="https://developer.apple.com/documentation/screensaver">Apple docs</a> explain the screensaver workflow quite well, but the gist of it is:</p>
 <ol>
-<li>The <code>init(frame:isPreview:)</code> function is called. We&rsquo;ll use this to initialise some stuff that we need to display the quotes and time.</li>
+<li>The <code>init(frame:isPreview:)</code> function is called. We'll use this to initialise some stuff that we need to display the quotes and time.</li>
 <li>The <code>draw(_:)</code> function is called, which you should use to establish the stage of the screensaver.</li>
 <li><code>animateOneFrame()</code> is called each time a new frame is to be drawn by the screensaver.</li>
-<li><code>stopAnimation()</code> is called. One caveat is that <code>animateOneFrame()</code> may or may not continue to execute after the screensaver has stopped. Good to note, but probably won&rsquo;t impact anything we do.</li>
+<li><code>stopAnimation()</code> is called. One caveat is that <code>animateOneFrame()</code> may or may not continue to execute after the screensaver has stopped. Good to note, but probably won't impact anything we do.</li>
 </ol>
-
-<p>Cool 😎, so now we have a basic Swift class to handle how our screensaver is rendered. Let&rsquo;s add some code to draw the current time onto the stage whenever the <code>animateOneFrame()</code> function is called.</p>
-
-<pre><code class="language-swift">import ScreenSaver
+<p>Cool 😎, so now we have a basic Swift class to handle how our screensaver is rendered. Let's add some code to draw the current time onto the stage whenever the <code>animateOneFrame()</code> function is called.</p>
+<pre><code class="language-{swift}" data-lang="{swift}">import ScreenSaver
 
 class Main: ScreenSaverView {
     override init?(frame: NSRect, isPreview: Bool) {
@@ -164,38 +144,23 @@ class Main: ScreenSaverView {
         drawText(time)
     }
 }
-</code></pre>
-
-<p>Before we go ahead and build our project, there&rsquo;s a couple of settings we need to change since we switched from Objective-C to Swift.</p>
-
+</code></pre><p>Before we go ahead and build our project, there's a couple of settings we need to change since we switched from Objective-C to Swift.</p>
 <ul>
 <li>In the <code>info.plist</code> file, we need to change the <code>Principal class</code> attribute to the name of the Swift class we created.</li>
 </ul>
-
-<p><img src="/img/xcode_info.png" alt="Xcode info.plist file" /></p>
-
+<p><img src="/img/xcode_info.png" alt="Xcode info.plist file"></p>
 <ul>
 <li>In the Target (not the Project) build settings, change the <code>Always Embed Swift Standard Libraries</code> attribute to <code>Yes</code> at the target level.</li>
 </ul>
-
-<p><img src="/img/xcode_target.png" alt="Xcode Target build settings" /></p>
-
+<p><img src="/img/xcode_target.png" alt="Xcode Target build settings"></p>
 <p>Now hit ⌘ + B to build the project! You should see a <code>.saver</code> file appear in the <code>Products</code> folder in the sidebar. Right click on it, and select <code>Open with External Editor</code>.</p>
-
-<p><img src="/img/xcode_open_external.png" alt="Xcode open with external editor" /></p>
-
+<p><img src="/img/xcode_open_external.png" alt="Xcode open with external editor"></p>
 <p>This will open System Preferences and prompt you to install the screensaver. Select whether you want to install it for all users, or just yourself. Finally, hover your cursor over the thumbnail, and click the Preview button to see it in action.</p>
-
-<p>It&rsquo;s quite painful to look at right now, with a bright red background and small, black text aligned in a dodgy way, but we&rsquo;ll fix that soon.</p>
-
+<p>It's quite painful to look at right now, with a bright red background and small, black text aligned in a dodgy way, but we'll fix that soon.</p>
 <h2 id="optimisations">Optimisations</h2>
-
-<p>The above code calls for an entire redraw of the stage whenever <code>animateOneFrame()</code> is called, a watse of resources considering we&rsquo;ll only update the quote every minute. To mitigate this, let&rsquo;s simplify the time to only include the hour and minute, and add some logic to check whether a redraw is necessary based on whether the minute has changed since the last frame was rendered.</p>
-
-<p>We&rsquo;ll add an instance variable <code>latestTime: String</code> to store the latest time a quote was displayed for. When each frame is to be updated, we can grab the current time and compare it with this property &ndash; if they&rsquo;re different, we&rsquo;ll redraw, otherwise we&rsquo;ll do nothing.</p>
-
-<p>On top of this, we can reduce the interval with which <code>animateOneFrame()</code> is called by setting the <code>animationTimeInterval</code> property. Five seconds seems like a reasonable middle ground; I don&rsquo;t really mind if it&rsquo;s five seconds past the minute and the quote hasn&rsquo;t yet refreshed.</p>
-
+<p>The above code calls for an entire redraw of the stage whenever <code>animateOneFrame()</code> is called, a watse of resources considering we'll only update the quote every minute. To mitigate this, let's simplify the time to only include the hour and minute, and add some logic to check whether a redraw is necessary based on whether the minute has changed since the last frame was rendered.</p>
+<p>We'll add an instance variable <code>latestTime: String</code> to store the latest time a quote was displayed for. When each frame is to be updated, we can grab the current time and compare it with this property &ndash; if they're different, we'll redraw, otherwise we'll do nothing.</p>
+<p>On top of this, we can reduce the interval with which <code>animateOneFrame()</code> is called by setting the <code>animationTimeInterval</code> property. Five seconds seems like a reasonable middle ground; I don't really mind if it's five seconds past the minute and the quote hasn't yet refreshed.</p>
 <pre><code>...
 
 class Main: ScreenSaverView {
@@ -234,16 +199,10 @@ class Main: ScreenSaverView {
     ...
 
 }
-</code></pre>
-
-<p>Great! Now we&rsquo;re probably far less resource intensive.</p>
-
+</code></pre><p>Great! Now we're probably far less resource intensive.</p>
 <h2 id="parsing-the-quotes">Parsing the quotes</h2>
-
-<p>So far we&rsquo;ve built a rudimentary screensaver capable of changing some arbitrary text on the stage every five seconds. Let&rsquo;s extend this basic model to do what we actually want &ndash; display literary quotes!</p>
-
+<p>So far we've built a rudimentary screensaver capable of changing some arbitrary text on the stage every five seconds. Let's extend this basic model to do what we actually want &ndash; display literary quotes!</p>
 <p>Jaap, from the Instructables article, provides a comprehensive <code>.csv</code> file of quotes which feature the time of day. The document is formatted with pipe (<code>|</code>) separators with the following columns:</p>
-
 <ul>
 <li>Timestamp in HH:mm</li>
 <li>Specific subquote from the quote which represents the time</li>
@@ -251,16 +210,10 @@ class Main: ScreenSaverView {
 <li>Book title</li>
 <li>Author</li>
 </ul>
-
 <p>The following is an example:</p>
-
 <pre><code>00:00|midnight|As midnight was striking bronze blows upon the dusky air, Dorian Gray, dressed commonly, and with a muffler wrapped round his throat, crept quietly out of his house.|The Picture of Dorian Gray |Oscar Wilde
-</code></pre>
-
-<p>This should be fairly easy to parse, let&rsquo;s do it!</p>
-
-<p>Firstly, we&rsquo;ll create a new struct for our quotes so they&rsquo;re easier to handle:</p>
-
+</code></pre><p>This should be fairly easy to parse, let's do it!</p>
+<p>Firstly, we'll create a new struct for our quotes so they're easier to handle:</p>
 <pre><code>struct Quote {
     var time: String
     var subquote: String
@@ -268,18 +221,11 @@ class Main: ScreenSaverView {
     var title: String
     var author: String
 }
-</code></pre>
-
-<p>These are going to be initialised for each row in the CSV file, and stored in an array instance variable to be used later.</p>
-
-<p><del>I&rsquo;m lazy, so we&rsquo;ll grab an off-the-shelf CSV parsing library. <a href="https://github.com/yaslab/CSV.swift">This</a> one looks alright. Install it with CocoaPods (or using one of the other options) and we&rsquo;ll implement it as part of our class.</del></p>
-
-<p>Welp, that didn&rsquo;t work 😢. Looks like screensavers don&rsquo;t play nicely with external frameworks for some reason:</p>
-
-<p><img src="/img/console.png" alt="Console error" /></p>
-
-<p>Let&rsquo;s do this the old fashioned way and write our own parser (visiting Google for inspiration of course).</p>
-
+</code></pre><p>These are going to be initialised for each row in the CSV file, and stored in an array instance variable to be used later.</p>
+<p><del>I'm lazy, so we'll grab an off-the-shelf CSV parsing library. <a href="https://github.com/yaslab/CSV.swift">This</a> one looks alright. Install it with CocoaPods (or using one of the other options) and we'll implement it as part of our class.</del></p>
+<p>Welp, that didn't work 😢. Looks like screensavers don't play nicely with external frameworks for some reason:</p>
+<p><img src="/img/console.png" alt="Console error"></p>
+<p>Let's do this the old fashioned way and write our own parser (visiting Google for inspiration of course).</p>
 <pre><code>import Foundation
 
 ...
@@ -314,18 +260,11 @@ class Main: ScreenSaverView {
     ...
 
 }
-</code></pre>
-
-<p>Now we should have an array of Quote structs populated once our screensaver starts.</p>
-
+</code></pre><p>Now we should have an array of Quote structs populated once our screensaver starts.</p>
 <h2 id="finding-what-we-need">Finding what we need</h2>
-
-<p>The next step is to filter the array to find a quote which matches the current time. There are multiple quotes for some times, and missing quotes for others. As a first cut, let&rsquo;s grab the first element which matches the current time, and if we don&rsquo;t get anything, we&rsquo;ll display a default quote instead.</p>
-
-<p>Later on we&rsquo;ll optimise this behaviour using a dictionary to group arrays of quotes based on their time. We&rsquo;ll gain O(1) access times with this method, and the ability to randomise the selection of a quote for times where multiple quotes exist.</p>
-
-<p>Here&rsquo;s a simple function to return the first quote which matches the given time. If we don&rsquo;t find anything, we&rsquo;ll return the very first quote ingested from the CSV.</p>
-
+<p>The next step is to filter the array to find a quote which matches the current time. There are multiple quotes for some times, and missing quotes for others. As a first cut, let's grab the first element which matches the current time, and if we don't get anything, we'll display a default quote instead.</p>
+<p>Later on we'll optimise this behaviour using a dictionary to group arrays of quotes based on their time. We'll gain O(1) access times with this method, and the ability to randomise the selection of a quote for times where multiple quotes exist.</p>
+<p>Here's a simple function to return the first quote which matches the given time. If we don't find anything, we'll return the very first quote ingested from the CSV.</p>
 <pre><code>func getQuoteFor(time: String) -&gt; Quote {
     let quotesForTime = self.quotes.filter { $0.time == time }
 
@@ -335,12 +274,8 @@ class Main: ScreenSaverView {
         return self.quotes[0]
     }
 }
-</code></pre>
-
-<h2 id="putting-it-all-together">Putting it all together</h2>
-
+</code></pre><h2 id="putting-it-all-together">Putting it all together</h2>
 <p>We can now change our <code>animateOneFrame()</code> function to retrieve and display the actual quote rather than the time:</p>
-
 <pre><code>override func animateOneFrame() {
     let time = getTime()
 
@@ -353,10 +288,7 @@ class Main: ScreenSaverView {
         self.latestTime = time
     }
 }
-</code></pre>
-
-<p>We&rsquo;ll also update <code>drawText(_ text:)</code> and <code>clearStage()</code> with some styling enhancements, namely to remove the ghastly red background, and format the quote in a semi-decent manner:</p>
-
+</code></pre><p>We'll also update <code>drawText(_ text:)</code> and <code>clearStage()</code> with some styling enhancements, namely to remove the ghastly red background, and format the quote in a semi-decent manner:</p>
 <pre><code>func drawText(_ text: String) {
     NSColor.gray.set()
 
@@ -370,14 +302,9 @@ func clearStage() {
     NSColor(red:1.00,green:0.97,blue:0.89,alpha:1.00).setFill()
     NSRectFill(self.bounds)
 }
-</code></pre>
-
-<h2 id="touch-ups">Touch-ups</h2>
-
-<p>That looks okay, but we can still make some improvements before the challenging bit begins. Let&rsquo;s separate the functions which draw the quote and the title/author, as we probably want different styling for each.</p>
-
+</code></pre><h2 id="touch-ups">Touch-ups</h2>
+<p>That looks okay, but we can still make some improvements before the challenging bit begins. Let's separate the functions which draw the quote and the title/author, as we probably want different styling for each.</p>
 <p>We can also do some refactoring by moving the colours and fonts to instance variables.</p>
-
 <pre><code>class Main: ScreenSaverView {
 
     ...
@@ -432,52 +359,31 @@ func clearStage() {
     ...
 
 }
-</code></pre>
-
-<p>Here&rsquo;s what we end up with!</p>
-
-<p><img src="/img/styled_screensaver.JPG" alt="Styled screensaver" /></p>
-
-<p>Not too shabby, besides the part where you can&rsquo;t easily see what time the quote is referring to! An especially good example presented itself as I took the above photo.</p>
-
+</code></pre><p>Here's what we end up with!</p>
+<p><img src="/img/styled_screensaver.JPG" alt="Styled screensaver"></p>
+<p>Not too shabby, besides the part where you can't easily see what time the quote is referring to! An especially good example presented itself as I took the above photo.</p>
 <h2 id="highlighting-the-time">Highlighting the time</h2>
-
-<p>This screensaver would be pretty bad if it didn&rsquo;t accomplish the main goal it set out to do - tell the time in the form of a quote. We need to somehow style the portion of the quote that refers to the time differently from everything else.</p>
-
-<p>When I started this project on Sunday, I thought this would probably be the toughest part (I&rsquo;m pretty naive when it comes to native development of any sort) as it could involve having to draw two differently styled strings on the same stage, and somehow order them appropriately based on the position of the substring within the quote&hellip;</p>
-
-<p>Turns out it&rsquo;s quite simple! Enter the world of the <code>NSMutableAttributedString</code> &ndash; boy that&rsquo;s a mouthful.</p>
-
+<p>This screensaver would be pretty bad if it didn't accomplish the main goal it set out to do - tell the time in the form of a quote. We need to somehow style the portion of the quote that refers to the time differently from everything else.</p>
+<p>When I started this project on Sunday, I thought this would probably be the toughest part (I'm pretty naive when it comes to native development of any sort) as it could involve having to draw two differently styled strings on the same stage, and somehow order them appropriately based on the position of the substring within the quote&hellip;</p>
+<p>Turns out it's quite simple! Enter the world of the <code>NSMutableAttributedString</code> &ndash; boy that's a mouthful.</p>
 <p>The <code>NSMutableAttributedString</code> type is essentially a string on which we can apply attributes. The mutable part of the name tells us that we can arbitrarily apply and remove these attributes. So, what kind of stuff can we attribute to this string? Well, we sort of had a sneek peak in the last section, where we updated the <code>drawQuote(_ quote:)</code> function to style the quote with a different font. In that scenario &ndash; we applied the font change at the time of drawing the string onto the stage. This time, we want to do it a bit more cleanly by applying everything to the string before drawing it.</p>
-
 <p><a href="https://stackoverflow.com/questions/25207373/changing-specific-texts-color-using-nsmutableattributedstring-in-swift">This</a> StackOverflow post pretty much gives us the solution (look at the first answer). We can specify a string and its substring, find the range in which the substring occurs, and apply a different style to only that range of characters.</p>
-
 <p>It goes something like this:</p>
-
 <ul>
-<li>First, we&rsquo;ll grab the range of the portion of the quote containing the time. There&rsquo;s a neat method <code>NSString</code> gives us to return a proper <code>NSRange</code>.</li>
+<li>First, we'll grab the range of the portion of the quote containing the time. There's a neat method <code>NSString</code> gives us to return a proper <code>NSRange</code>.</li>
 </ul>
-
 <p><code>let timeRange = (quote as NSString).range(of: subquote)</code></p>
-
 <p>We cast <code>quote</code>, which is a <code>String</code>, to an <code>NSString</code> because its <code>range(of:)</code> method produces an <code>NSRange</code>, which is what the <code>addAttribute(name:value:range)</code> method expects us to provide. This range object defines the starting index of the substring, and its total length.</p>
-
 <ul>
 <li>Then, we can initialise our <code>NSMutableAttributedString</code> from the quote.</li>
 </ul>
-
 <p><code>let styledQuote = NSMutableAttributedString(string: quote)</code></p>
-
 <ul>
-<li><p>Finally, let&rsquo;s apply the time-specific and overall styling for the quote.</p>
-
+<li>Finally, let's apply the time-specific and overall styling for the quote.</li>
+</ul>
 <pre><code>styledQuote.addAttribute(NSForegroundColorAttributeName, value: COLOUR_TIME, range: timeRange)
 styledQuote.addAttribute(NSFontAttributeName, value: FONT_QUOTE, range: NSMakeRange(0, quote.count))
-</code></pre></li>
-</ul>
-
-<p>The uplifted <code>drawQuote(:subquote:)</code> function looks like this:</p>
-
+</code></pre><p>The uplifted <code>drawQuote(:subquote:)</code> function looks like this:</p>
 <pre><code>func drawQuote(_ quote: String, subquote: String) {
     COLOUR_QUOTE.set()
     
@@ -489,41 +395,12 @@ styledQuote.addAttribute(NSFontAttributeName, value: FONT_QUOTE, range: NSMakeRa
     
     styledQuote.draw(in: CGRect(x: 100.0, y: 200.0, width: 1400, height: 700))
 }
-</code></pre>
+</code></pre><p>and renders quite nicely!</p>
+<p><img src="/img/styled_screensaver_2.JPG" alt="Styled screensaver 2"></p>
 
-<p>and renders quite nicely!</p>
-
-<p><img src="/img/styled_screensaver_2.JPG" alt="Styled screensaver 2" /></p>
-
-      </article>
-
-      <nav class="site-nav">
-  <a href="//jamesliu.io">Home</a>
-  <a href="//jamesliu.iopost/">All posts</a>
-
-  
-
-  
-
-  
-</nav>
-
-
-      <footer class="site-footer">
-  <span class="owner">©2020 </span>
-  
-  
-  
-  
-</footer>
-
-
-    </div>
-
-  
-<script src="//jamesliu.iojs/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
+</section>
 
 
   </body>
+
 </html>
