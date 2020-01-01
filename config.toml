@@ -1,4 +1,4 @@
-baseURL = "https://jamesliu.io/"
+baseURL = "//jamesliu.io"
 languageCode = "en-us"
 title = "James Liu"
 theme = "paperback"
