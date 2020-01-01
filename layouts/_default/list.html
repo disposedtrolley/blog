@@ -8,7 +8,7 @@
 </header>
 
 <section>
-  {{ range .Pages }}
+  {{ range .Site.RegularPages }}
     {{ .Render "item" }}
   {{ end }}
 </section>
