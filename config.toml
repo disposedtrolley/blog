@@ -1,11 +1,16 @@
 baseURL = "//jamesliu.io/"
-languageCode = "en-us"
+languageCode = "en-au"
 title = "James Liu"
-theme = "central"
+theme = "paperesque"
 
-[permalinks]
-  post = "/:year/:month/:title/"
-  page = "/:slug/"
+[[params.menu]]
+  name = "blog"
+  url = "posts/"
 
-[params]
-  mainSections = ["post"]
+[[params.topmenu]]
+  name = "about"
+  url = "about/"
+
+[[params.topmenu]]
+  name = "rss"
+  url = "posts/index.xml"
