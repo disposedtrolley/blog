@@ -3,12 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>//jamesliu.io/about/</loc>
+    <lastmod>2020-06-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>//jamesliu.io/tags/fun/</loc>
     <lastmod>2019-02-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//jamesliu.io/2019/02/generating-salads/</loc>
+    <loc>//jamesliu.io/posts/2019-02-09-generating-salads/</loc>
     <lastmod>2019-02-09T00:00:00+00:00</lastmod>
   </url>
   
@@ -18,7 +23,7 @@
   </url>
   
   <url>
-    <loc>//jamesliu.io/post/</loc>
+    <loc>//jamesliu.io/posts/</loc>
     <lastmod>2019-02-09T00:00:00+00:00</lastmod>
   </url>
   
@@ -33,17 +38,12 @@
   </url>
   
   <url>
-    <loc>//jamesliu.io/2018/12/gos-date-formatting-yay-or-nay/</loc>
-    <lastmod>2018-12-30T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//jamesliu.io/2018/08/creating-a-macos-screensaver/</loc>
+    <loc>//jamesliu.io/posts/2018-08-05-macos-screensaver/</loc>
     <lastmod>2018-08-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//jamesliu.io/2018/07/reflections-on-waterfall-agile-and-requirements-part-1/</loc>
+    <loc>//jamesliu.io/posts/2018-07-01-waterfall-agile-requirements/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
   </url>
   
