@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on James Liu</title>
-    <link>//jamesliu.io/tags/python/</link>
-    <description>Recent content in Python on James Liu</description>
+    <title>Food on James Liu</title>
+    <link>//jamesliu.io/tags/food/</link>
+    <description>Recent content in Food on James Liu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-au</language>
     <copyright>© {year}</copyright>
     <lastBuildDate>Sat, 09 Feb 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//jamesliu.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//jamesliu.io/tags/food/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

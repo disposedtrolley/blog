@@ -6,17 +6,27 @@
     <description>Recent content in Tags on James Liu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-au</language>
+    <copyright>© {year}</copyright>
     <lastBuildDate>Sat, 09 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="//jamesliu.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Fun</title>
-      <link>//jamesliu.io/tags/fun/</link>
+      <title>Data Analytics</title>
+      <link>//jamesliu.io/tags/data-analytics/</link>
       <pubDate>Sat, 09 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>//jamesliu.io/tags/fun/</guid>
+      <guid>//jamesliu.io/tags/data-analytics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Food</title>
+      <link>//jamesliu.io/tags/food/</link>
+      <pubDate>Sat, 09 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>//jamesliu.io/tags/food/</guid>
       <description></description>
     </item>
     
@@ -26,6 +36,33 @@
       <pubDate>Sat, 09 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>//jamesliu.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macOS</title>
+      <link>//jamesliu.io/tags/macos/</link>
+      <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>//jamesliu.io/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Swift</title>
+      <link>//jamesliu.io/tags/swift/</link>
+      <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>//jamesliu.io/tags/swift/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Peopleware</title>
+      <link>//jamesliu.io/tags/peopleware/</link>
+      <pubDate>Sun, 01 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>//jamesliu.io/tags/peopleware/</guid>
       <description></description>
     </item>
     

@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Fun on James Liu</title>
-    <link>//jamesliu.io/tags/fun/</link>
-    <description>Recent content in Fun on James Liu</description>
+    <title>Data Analytics on James Liu</title>
+    <link>//jamesliu.io/tags/data-analytics/</link>
+    <description>Recent content in Data Analytics on James Liu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-au</language>
+    <copyright>© {year}</copyright>
     <lastBuildDate>Sat, 09 Feb 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="//jamesliu.io/tags/fun/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//jamesliu.io/tags/data-analytics/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Generating Salads</title>
-      <link>//jamesliu.io/posts/2019-02-09-generating-salads/</link>
+      <link>//jamesliu.io/blog/2019-02-09-generating-salads/</link>
       <pubDate>Sat, 09 Feb 2019 00:00:00 +0000</pubDate>
       
-      <guid>//jamesliu.io/posts/2019-02-09-generating-salads/</guid>
+      <guid>//jamesliu.io/blog/2019-02-09-generating-salads/</guid>
       <description>There&amp;rsquo;s a salad place I like called Chia Chia near where I&amp;rsquo;m currently working. I like it for the same reasons I hate it; it epitomises my fear of choice. How so? Here&amp;rsquo;s their salad &amp;ldquo;menu&amp;rdquo;:
 Scary isn&amp;rsquo;t it? There are 100 possible combinations of bases alone! Maybe trying out all of the salads here will make it into the bucket list. It&amp;rsquo;ll certainly be quite a gastronomical achievement.
 Of course, there are &amp;ldquo;better&amp;rdquo; things for a bucket list and trying every possible combination of ingredients would likely produce more than a few inedible salads.</description>

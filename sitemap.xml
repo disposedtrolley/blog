@@ -8,22 +8,27 @@
   </url>
   
   <url>
-    <loc>//jamesliu.io/tags/fun/</loc>
-    <lastmod>2019-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//jamesliu.io/posts/2019-02-09-generating-salads/</loc>
-    <lastmod>2019-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>//jamesliu.io/</loc>
     <lastmod>2019-02-09T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//jamesliu.io/posts/</loc>
+    <loc>//jamesliu.io/blog/</loc>
+    <lastmod>2019-02-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//jamesliu.io/tags/data-analytics/</loc>
+    <lastmod>2019-02-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//jamesliu.io/tags/food/</loc>
+    <lastmod>2019-02-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//jamesliu.io/blog/2019-02-09-generating-salads/</loc>
     <lastmod>2019-02-09T00:00:00+00:00</lastmod>
   </url>
   
@@ -38,12 +43,27 @@
   </url>
   
   <url>
-    <loc>//jamesliu.io/posts/2018-08-05-macos-screensaver/</loc>
+    <loc>//jamesliu.io/blog/2018-08-05-macos-screensaver/</loc>
     <lastmod>2018-08-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>//jamesliu.io/posts/2018-07-01-waterfall-agile-requirements/</loc>
+    <loc>//jamesliu.io/tags/macos/</loc>
+    <lastmod>2018-08-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//jamesliu.io/tags/swift/</loc>
+    <lastmod>2018-08-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//jamesliu.io/tags/peopleware/</loc>
+    <lastmod>2018-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//jamesliu.io/blog/2018-07-01-waterfall-agile-requirements/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
   </url>
   

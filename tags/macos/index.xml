@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>macOS on James Liu</title>
+    <link>//jamesliu.io/tags/macos/</link>
+    <description>Recent content in macOS on James Liu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-au</language>
+    <copyright>© {year}</copyright>
+    <lastBuildDate>Sun, 05 Aug 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="//jamesliu.io/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Creating a macOS screensaver</title>
+      <link>//jamesliu.io/blog/2018-08-05-macos-screensaver/</link>
+      <pubDate>Sun, 05 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>//jamesliu.io/blog/2018-08-05-macos-screensaver/</guid>
+      <description>I tend to browse Hacker News obsessively over the course of a day, and this morning I came across this post where somebody had jailbroken their old Kindle (I didn&amp;rsquo;t even know you could do that 😱) and repurposed it into a fancy clock displaying literary quotes .
+I managed to dig up my old second-generation Kindle (which turned 9 this year!) thinking I&amp;rsquo;d charge it up, jailbreak it, and follow along with his tutorial as a fun Sunday morning project.</description>
+    </item>
+    
+  </channel>
+</rss>
