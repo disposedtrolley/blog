@@ -1,16 +1,28 @@
 baseURL = "//jamesliu.io/"
 languageCode = "en-au"
 title = "James Liu"
-theme = "paperesque"
+theme = "hugo-theme-codex"
+copyright = "© {year}"
 
-[[params.menu]]
-  name = "blog"
-  url = "posts/"
+[params]
+  dateFormat = "Jan 2 2006"
 
-[[params.topmenu]]
+  twitter = "https://twitter.com/disposedtrolley"
+  github = "https://github.com/disposedtrolley"
+
+[markup]
+  [markup.highlight]
+    codeFences = false
+
+# Navigation
+[[menu.main]]
+  identifier = "about"
   name = "about"
-  url = "about/"
+  title = "About"
+  url = "/"
 
-[[params.topmenu]]
-  name = "rss"
-  url = "posts/index.xml"
+[[menu.main]]
+  identifier = "blog"
+  name = "blog"
+  title = "Blog"
+  url = "/blog"
