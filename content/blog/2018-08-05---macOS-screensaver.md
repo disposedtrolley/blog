@@ -2,6 +2,9 @@
 title: Creating a macOS screensaver
 date: "2018-08-05"
 draft: false
+tags:
+  - "Swift"
+  - "macOS"
 ---
 
 I tend to browse Hacker News obsessively over the course of a day, and this morning I came across [this post](https://news.ycombinator.com/item?id=17688324) where somebody had jailbroken their old Kindle (I didn't even know you could do that 😱) and repurposed it into a [fancy clock displaying literary quotes](https://www.instructables.com/id/Literary-Clock-Made-From-E-reader/).

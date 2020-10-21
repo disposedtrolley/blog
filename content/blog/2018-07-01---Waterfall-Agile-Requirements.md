@@ -2,6 +2,8 @@
 title: Reflections on Waterfall, Agile, and Requirements - Part 1
 date: "2018-07-01"
 draft: false
+tags:
+  - "Peopleware"
 ---
 
 I remember sitting in a lecture theatre not too long ago, and being told that [68% of software projects fail][2]. “This is clearly a joke” I thought, “designed to suck us into the next topic we’ll be examined on. How is it that software is ever delivered? How much potential are we losing out on by letting this happen?”.

@@ -4,11 +4,10 @@ date: "2019-02-09"
 layout: post
 draft: false
 path: "/posts/generating-salads"
-category: "Fun"
 tags:
-  - "Fun"
+  - "Food"
+  - "Data Analytics"
   - "Python"
-description: ""
 ---
 
 There's a salad place I like called [Chia Chia](https://www.zomato.com/melbourne/chia-chia-docklands) near where I'm currently working. I like it for the same reasons I hate it; it epitomises my fear of choice. How so? Here's their salad "menu":
