@@ -1,6 +1,3 @@
-[submodule "themes/central"]
-	path = themes/central
-	url = https://github.com/irfansharif/central
 [submodule "themes/hugo-theme-codex"]
 	path = themes/hugo-theme-codex
 	url = https://github.com/jakewies/hugo-theme-codex.git
