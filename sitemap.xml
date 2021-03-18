@@ -1,74 +1,52 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
-  <url>
-    <loc>//jamesliu.io/about/</loc>
-    <lastmod>2020-06-14T00:00:00+00:00</lastmod>
-  </url>
-  
   <url>
     <loc>//jamesliu.io/</loc>
-    <lastmod>2019-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2020-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//jamesliu.io/blog/2020-10-21-a-shallow-dive-into-adcs/</loc>
+    <lastmod>2020-10-21T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>//jamesliu.io/blog/</loc>
-    <lastmod>2019-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2020-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//jamesliu.io/tags/electronics/</loc>
+    <lastmod>2020-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//jamesliu.io/tags/</loc>
+    <lastmod>2020-10-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//jamesliu.io/about/</loc>
+    <lastmod>2020-06-14T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>//jamesliu.io/tags/data-analytics/</loc>
     <lastmod>2019-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//jamesliu.io/tags/food/</loc>
     <lastmod>2019-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//jamesliu.io/blog/2019-02-09-generating-salads/</loc>
     <lastmod>2019-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//jamesliu.io/tags/python/</loc>
     <lastmod>2019-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//jamesliu.io/tags/</loc>
-    <lastmod>2019-02-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//jamesliu.io/blog/2018-08-05-macos-screensaver/</loc>
     <lastmod>2018-08-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//jamesliu.io/tags/macos/</loc>
     <lastmod>2018-08-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//jamesliu.io/tags/swift/</loc>
     <lastmod>2018-08-05T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//jamesliu.io/tags/peopleware/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//jamesliu.io/blog/2018-07-01-waterfall-agile-requirements/</loc>
     <lastmod>2018-07-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>//jamesliu.io/categories/</loc>
   </url>
-  
 </urlset>

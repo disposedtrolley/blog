@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-au</language>
     <copyright>© {year}</copyright>
-    <lastBuildDate>Sun, 05 Aug 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="//jamesliu.io/tags/swift/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 05 Aug 2018 00:00:00 +0000</lastBuildDate><atom:link href="//jamesliu.io/tags/swift/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating a macOS screensaver</title>
       <link>//jamesliu.io/blog/2018-08-05-macos-screensaver/</link>

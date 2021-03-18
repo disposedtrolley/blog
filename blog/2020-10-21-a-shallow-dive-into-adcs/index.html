@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-au">
+
+<head>
+  <title>A shallow dive into ADCs | James Liu</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="A shallow dive into ADCs" />
+  <meta name="twitter:description" content=""/>
+  <meta name="twitter:site" content="https://twitter.com/disposedtrolley" />
+  <meta name="twitter:creator" content="https://twitter.com/disposedtrolley" />
+  
+
+  <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/post.min.a4712d0376acf8c0491ef2b98baf2f9287629f027a654e15b0ca42433957f47d.css" integrity="sha256-pHEtA3as&#43;MBJHvK5i68vkodinwJ6ZU4VsMpCQzlX9H0="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    {
+      "@context" : "http://schema.org",
+      "@type" : "BlogPosting",
+      "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/\/jamesliu.io\/"
+      },
+      "articleSection" : "blog",
+      "name" : "A shallow dive into ADCs",
+      "headline" : "A shallow dive into ADCs",
+      "description" : "",
+      "inLanguage" : "en-US",
+      "author" : "",
+      "creator" : "",
+      "publisher": "",
+      "accountablePerson" : "",
+      "copyrightHolder" : "",
+      "copyrightYear" : "2020",
+      "datePublished": "2020-10-21 00:00:00 \u002b0000 UTC",
+      "dateModified" : "2020-10-21 00:00:00 \u002b0000 UTC",
+      "url" : "\/\/jamesliu.io\/blog\/2020-10-21-a-shallow-dive-into-adcs\/",
+      "wordCount" : "814",
+      "keywords" : ["Blog"]
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="/">about</a>
+      </li>
+    
+      <li>
+        <a  class="active"
+         href="/blog">blog</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">A shallow dive into ADCs</h1>
+            <time datetime="2020-10-21 00:00:00 &#43;0000 UTC" class="post__date">Oct 21 2020</time> 
+          </header>
+          <article class="post__content">
+              
+<p>In the process of designing a digital
+<a href="https://en.wikipedia.org/wiki/Synthesizer" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>synthesiser</a>
+, I spent the weekend
+learning a little bit about ADCs. This post provides a basic introduction to
+what they are, and aims to get you familiar with the high level concepts and
+terminology used in the ADC domain.</p>
+<p>An ADC is an <strong>Analog-to-Digital Converter</strong>; it translates analog signals into
+digital inputs which your program can interpret.</p>
+<p><img src="/img/shallow_dive_into_adcs/conversion.png" alt="Analog to Digital Conversion"></p>
+<h2 id="analog-signals">Analog signals<a class="anchor" href="#analog-signals">#</a></h2>
+<p>An example of an analog signal you might want to process is the distance you
+move a thumbstick from its centered position. You can use this signal to
+determine how to move a cursor on a screen, control where a character is
+pointing their weapon, and myriad other things.</p>
+<p><img src="/img/shallow_dive_into_adcs/analog_thumbstick.jpg" alt="Analog Thumbstick"></p>
+<p>This is a two-axis thumbstick; it senses movement up and down (<strong>Y</strong>), and left
+to right (<strong>X</strong>). You can also press on the stick to trigger a push button (but
+since that&rsquo;s a digital output, we won&rsquo;t focus on it).</p>
+<p>Here&rsquo;s the pinout diagram:</p>
+<p><img src="/img/shallow_dive_into_adcs/analog_thumbstick_pinout.png" alt="Analog Thumbstickpinout"></p>
+<p>You connect <code>VCC</code> to a power source up to 5 volts and <code>GND</code> to ground. In
+return, you get an output voltage from <code>Xout</code> and <code>Yout</code> ranging from 0 to
+<code>VCC</code>, proportional to the amount you&rsquo;ve moved the thumbstick. In its centred
+position, you&rsquo;ll get a voltage of <code>VCC/2</code> from both outputs.</p>
+<p>Analog signals are continuous; that is to say that we can <strong><em>sample</em></strong> the value
+of a signal at a given time <strong><em>t</em></strong> and again at <strong><em>t + 1</em></strong>, but there would&rsquo;ve
+been an infinite number of samples we missed in between. Roughly graphed out,
+the voltage output from <code>Xout</code> corresponding to the horizontal movement of the
+thumbstick might look like this:</p>
+<p><img src="/img/shallow_dive_into_adcs/continuous.png" alt="A continuous signal from Xout"></p>
+<p>The vertical axis indicates voltage, from 0 volts to the amount supplied to
+<code>VCC</code>. The horizontal axis represents time. You can sample the signal at certain
+points in time to get an idea of where the user has moved the thumbstick:</p>
+<p><img src="/img/shallow_dive_into_adcs/observe.png" alt="Observing a continuous signal fromXout"></p>
+<p>Here we&rsquo;ve made four samples. At <strong><em>s1</em></strong>, the thumbstick is at its resting
+position. At <strong><em>s2</em></strong>, the user has moved the thumbstick slightly to the left.
+<strong><em>s3</em></strong> shows a large movement to the right, and <strong><em>s4</em></strong> a large movement to
+the left.</p>
+<p>The number of samples you take in a given period is called the <strong><em>sample
+rate</em></strong>. The higher the sample rate, the more accurately you&rsquo;ll be able to map
+out the change in voltage. Making just four samples above means that we only end
+up with four discrete values, missing out much of the interesting activity. This
+phenomena is called <strong><em>aliasing</em></strong>, because your representation of the signal
+has distorted from reality.</p>
+<p>To sample a signal without aliasing, your sample rate needs to be, at a minimum,
+twice the highest frequency of the signal. This is called the <a href="https://en.wikipedia.org/wiki/Nyquist_rate" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>Nyquist
+rate</a>
+. Applied to our example,
+sampling would need to be done at a much tigher interval:</p>
+<p><img src="/img/shallow_dive_into_adcs/nyquist.png" alt="Applying the Nyquist rate"></p>
+<p>The dotted lines mark the bounds of a cycle in a high-frequency area of the
+signal. <strong><em>sx</em></strong> and <strong><em>sy</em></strong> show the minimum sample interval we&rsquo;d need to
+capture a good representation of this signal.</p>
+<p>Above the Nyquist rate, you typically choose a sample rate depending on your
+application. It&rsquo;s tempting to sample at the highest rate your equipment will
+allow, but if you&rsquo;re responding to thumbstick movement and your display only
+refreshes at 60Hz, any sampling beyond 60Hz probably won&rsquo;t make a difference to
+your user (this practice is referred to as
+<a href="https://en.wikipedia.org/wiki/Oversampling" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>oversampling</a>
+).</p>
+<p>Now that we&rsquo;ve explored a little bit about analog signals, it&rsquo;s time for our
+shallow dive into ADCs!</p>
+<h2 id="analog-to-digital-conversion">Analog to digital conversion<a class="anchor" href="#analog-to-digital-conversion">#</a></h2>
+<p>The job of an ADC is to sample the voltage produced by the analog signal at a
+given interval, converting it into a digital number that can be understood by
+your program.</p>
+<p><img src="/img/shallow_dive_into_adcs/adc_sample.png" alt="ADC sample"></p>
+<p>Here, the ADC has taken a voltage reading at about halfway between 0 and 5V (so
+let&rsquo;s call it 2.5V) and has given us the number <code>2047</code> as the output. It arrived
+at <code>2047</code> because of two factors: the <strong><em>reference voltage</em></strong> and the
+<strong><em>resolution</em></strong>.</p>
+<p>The reference voltage is the upper bound of the measured voltage. It tells the
+ADC how to calculate the &ldquo;level&rdquo; of the analog signal. The resolution of an ADC
+determines how fine of a change in voltage it can recognise, expressed as the
+number of bits of the output. The above example assumed a 12-bit ADC which can
+output values from 0 to 4095. Since it sampled a voltage halfway up to the
+reference, we got <code>2047</code> which is roughly 4095/2. If we were using an 8-bit ADC,
+we&rsquo;d get 255/2 or <code>127</code>.</p>
+<p>You should choose an ADC with a suitable resolution for your sensor. A
+temperature sensor may only provide 255 different output levels, so hooking it
+up to a 12-bit ADC will just mean additional storage and computation. If your
+microcontroller has a built-in high resolution ADC, you might be able to
+configure it in a low-resolution mode as needed.</p>
+
+
+              
+          </article>
+          
+
+<ul class="tags__list">
+    
+    <li class="tag__item">
+        <a class="tag__link" href="//jamesliu.io/tags/electronics/">electronics</a>
+    </li></ul>
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="//jamesliu.io/blog/2019-02-09-generating-salads/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Generating Salads</span>
+    </a>
+  
+
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="Twitter"
+         href="https://twitter.com/disposedtrolley"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('//jamesliu.io/svg/twitter.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" rel="me" title="GitHub"
+         href="https://github.com/disposedtrolley"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('//jamesliu.io/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+  
+     
+    
+  
+     
+    
+  
+     
+    
+  
+     
+    
+  
+     
+    
+     
+</div>
+
+            <p>© 2021</p>
+          </footer>
+          </div>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="/js/index.min.575dda8d49ee02639942c63564273e6da972ab531dda26a08800bdcb477cbd7f.js" integrity="sha256-V13ajUnuAmOZQsY1ZCc&#43;balyq1Md2iagiAC9y0d8vX8=" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+
+
+</body>
+
+</html>
